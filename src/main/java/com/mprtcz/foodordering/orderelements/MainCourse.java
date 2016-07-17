@@ -1,22 +1,24 @@
 package com.mprtcz.foodordering.orderelements;
 
+import org.joda.money.Money;
+
 /**
  * Created by Azet on 2016-07-17.
  */
 public class MainCourse {
     String name;
-    double price;
+    Money price;
 
-    public MainCourse(String name, double price) {
+    public MainCourse(String name, String price) {
         this.name = name;
-        this.price = price;
+        this.price = Money.parse(price);
     }
 
     public String getName() {
         return name;
     }
 
-    public double getPrice() {
+    public Money getPrice() {
         return price;
     }
 

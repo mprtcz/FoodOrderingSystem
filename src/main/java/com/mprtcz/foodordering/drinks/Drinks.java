@@ -14,11 +14,11 @@ public class Drinks {
         List<Drink> drinksList;
 
         drinksList = new ArrayList<>();
-        drinksList.add(new Drink("Drink 0", 1.99));
-        drinksList.add(new Drink("Drink 1", 2.99));
-        drinksList.add(new Drink("Drink 2", 3.99));
-        drinksList.add(new Drink("Drink 3", 4.99));
-        drinksList.add(new Drink("Drink 4", 5.99));
+        drinksList.add(new Drink("Drink 0", "USD 1.99"));
+        drinksList.add(new Drink("Drink 1", "USD 2.99"));
+        drinksList.add(new Drink("Drink 2", "USD 3.99"));
+        drinksList.add(new Drink("Drink 3", "USD 4.99"));
+        drinksList.add(new Drink("Drink 4", "USD 5.99"));
 
         return drinksList;
     }

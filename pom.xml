@@ -19,5 +19,10 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies><dependency>
+        <groupId>org.joda</groupId>
+        <artifactId>joda-money</artifactId>
+        <version>0.11</version>
+    </dependency></dependencies>
 
 </project>

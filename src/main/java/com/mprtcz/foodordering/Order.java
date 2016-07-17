@@ -1,13 +1,17 @@
 package com.mprtcz.foodordering;
 
 import com.mprtcz.foodordering.drinks.Drinks;
+import com.mprtcz.foodordering.helpers.OrderHelper;
 import com.mprtcz.foodordering.interfaces.Cuisine;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.Drink;
 import com.mprtcz.foodordering.orderelements.MainCourse;
-import com.mprtcz.foodordering.orderhelper.OrderHelper;
+import org.joda.money.Money;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by Azet on 2016-07-08.
@@ -155,7 +159,7 @@ public class Order {
     }
 
     void getTotalPrice(){
-        double price = OrderHelper.summarizePrices(orderedMainCourses, orderedDesserts, orderedDrinks);
-        System.out.println("Total: " +String.format("%.2f", price));
+        Money price = OrderHelper.summarizePrices(orderedMainCourses, orderedDesserts, orderedDrinks);
+        System.out.println("Total: " +price.toString());
     }
 }
