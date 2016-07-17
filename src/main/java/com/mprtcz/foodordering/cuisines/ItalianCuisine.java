@@ -37,21 +37,21 @@ public class ItalianCuisine implements Cuisine {
 
     private void createMainCourseList(){
         mainCourseList = new ArrayList<>();
-        mainCourseList.add(new MainCourse("Italian Meal 1", 1.99));
-        mainCourseList.add(new MainCourse("Italian Meal 2", 2.99));
-        mainCourseList.add(new MainCourse("Italian Meal 3", 1.29));
-        mainCourseList.add(new MainCourse("Italian Meal 4", 2.29));
-        mainCourseList.add(new MainCourse("Italian Meal 5", 3.99));
-        mainCourseList.add(new MainCourse("Italian Meal 6", 2.44));
-        mainCourseList.add(new MainCourse("Italian Meal 7", 5.99));
-        mainCourseList.add(new MainCourse("Italian Meal 8", 2.55));
+        mainCourseList.add(new MainCourse("Italian Meal 0", 1.99));
+        mainCourseList.add(new MainCourse("Italian Meal 1", 2.99));
+        mainCourseList.add(new MainCourse("Italian Meal 2", 1.29));
+        mainCourseList.add(new MainCourse("Italian Meal 3", 2.29));
+        mainCourseList.add(new MainCourse("Italian Meal 4", 3.99));
+        mainCourseList.add(new MainCourse("Italian Meal 5", 2.44));
+        mainCourseList.add(new MainCourse("Italian Meal 6", 5.99));
+        mainCourseList.add(new MainCourse("Italian Meal 7", 2.55));
     }
 
     private void createDessertsList(){
         dessertsList = new ArrayList<>();
-        dessertsList.add(new Dessert("Italian Dessert 1", 1.99));
-        dessertsList.add(new Dessert("Italian Dessert 2", 2.99));
-        dessertsList.add(new Dessert("Italian Dessert 3", 1.29));
+        dessertsList.add(new Dessert("Italian Dessert 0", 1.99));
+        dessertsList.add(new Dessert("Italian Dessert 1", 2.99));
+        dessertsList.add(new Dessert("Italian Dessert 2", 1.29));
     }
 
 }

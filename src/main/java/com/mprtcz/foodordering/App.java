@@ -10,12 +10,8 @@ public class App {
 
         try {
             order.pickMainMeal();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
             order.pickDessert();
+            order.pickDrink();
         } catch (Exception e) {
             e.printStackTrace();
         }

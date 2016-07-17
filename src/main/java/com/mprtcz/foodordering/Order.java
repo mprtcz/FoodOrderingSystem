@@ -1,14 +1,13 @@
 package com.mprtcz.foodordering;
 
+import com.mprtcz.foodordering.drinks.Drinks;
 import com.mprtcz.foodordering.interfaces.Cuisine;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.Drink;
 import com.mprtcz.foodordering.orderelements.MainCourse;
+import com.mprtcz.foodordering.orderhelper.OrderHelper;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Azet on 2016-07-08.
@@ -22,48 +21,33 @@ public class Order {
         orderedMainCourses = new ArrayList<>();
         orderedDesserts = new ArrayList<>();
         orderedDrinks = new ArrayList<>();
+
     }
 
-    Cuisine pickCuisine() {
-        int choice = -1;
+    private Cuisine pickCuisine() {
+        int choice;
         boolean validChoice;
-        Cuisine.CuisineOptions[] options = Cuisine.CuisineOptions.values();
+        List<Cuisine.CuisineOptions> cuisineOptions = new ArrayList<>(Arrays.asList(Cuisine.CuisineOptions.values()));
 
         do {
-            validChoice = true;
-            System.out.println("Pick a cuisine by typing it's number: ");
+            OrderHelper.listOutCuisineOptions();
 
-            int index = 0;
-            for (Cuisine.CuisineOptions c : options) {
-                System.out.println(index + " " + c.toString());
-                index++;
-            }
+            choice = OrderHelper.getIntegerFromSysInput();
 
-            Scanner scanner = new Scanner(System.in);
-
-            try {
-                choice = scanner.nextInt();
-            } catch (InputMismatchException ex) {
-                System.out.println("Only numerical values \n");
-                validChoice = false;
-            }
-
-            if (choice < 0 || choice > options.length - 1) {
-                System.out.println("Numbers only from 0 to " + (options.length - 1) + " please. \n");
-                validChoice = false;
-            }
+            validChoice = OrderHelper.validateChoice(choice, cuisineOptions);
 
         } while (!validChoice);
 
-        System.out.println("Picked " + Cuisine.getInstance(options[choice]).getName());
-        return Cuisine.getInstance(options[choice]);
+        System.out.println("Picked " + Cuisine.getInstance(cuisineOptions.get(choice)).getName());
+        return Cuisine.getInstance(cuisineOptions.get(choice));
     }
 
     void pickMainMeal() throws Exception {
         boolean validChoice;
-        int choice = -1;
+        int choice;
         Cuisine cuisine;
 
+        System.out.println("Pick a cuisine for a main meal :");
         cuisine = pickCuisine();
 
         if (cuisine == null) {
@@ -74,11 +58,11 @@ public class Order {
             System.out.println("Pick main meal by choosing it's number:");
             List<MainCourse> mealOptions = cuisine.getMainCourseList();
 
-            listOutOrderOptions(mealOptions);
+            OrderHelper.listOutOrderOptions(mealOptions);
 
-            choice = getIntegerFromSysInput();
+            choice = OrderHelper.getIntegerFromSysInput();
 
-            validChoice = validateChoice(choice, mealOptions);
+            validChoice = OrderHelper.validateChoice(choice, mealOptions);
 
             if (validChoice) {
                 orderedMainCourses.add(mealOptions.get(choice));
@@ -86,9 +70,10 @@ public class Order {
             }
         } while (!validChoice);
 
-        System.out.println("Would you like to order another Main Course? Yes if so");
+        System.out.println("Would you like to order another Main Course? Yes or Y if so");
         Scanner scanner = new Scanner(System.in);
-        if(scanner.nextLine().toLowerCase().equals("yes")){
+        String wantsAnother = scanner.nextLine();
+        if(wantsAnother.toLowerCase().equals("yes") || wantsAnother.toLowerCase().equals("y")){
             pickMainMeal();
         }
     }
@@ -97,6 +82,8 @@ public class Order {
         boolean validChoice;
         int choice;
         Cuisine cuisine;
+
+        System.out.println("Pick a cuisine for a dessert:");
 
         cuisine = pickCuisine();
 
@@ -108,11 +95,11 @@ public class Order {
             System.out.println("Pick dessert by choosing it's number:");
             List<Dessert> dessertOptions = cuisine.getDessertsList();
 
-            listOutOrderOptions(dessertOptions);
+            OrderHelper.listOutOrderOptions(dessertOptions);
 
-            choice = getIntegerFromSysInput();
+            choice = OrderHelper.getIntegerFromSysInput();
 
-            validChoice = validateChoice(choice, dessertOptions);
+            validChoice = OrderHelper.validateChoice(choice, dessertOptions);
 
             if (validChoice) {
                 orderedDesserts.add(dessertOptions.get(choice));
@@ -120,38 +107,44 @@ public class Order {
             }
         } while (!validChoice);
 
-        System.out.println("Would you like to order another Dessert? Yes if so");
+        System.out.println("Would you like to order another Dessert? Yes or Y if so");
         Scanner scanner = new Scanner(System.in);
-        if(scanner.nextLine().toLowerCase().equals("yes")){
+        String wantsAnother = scanner.nextLine();
+        if(wantsAnother.toLowerCase().equals("yes") || wantsAnother.toLowerCase().equals("y")){
             pickDessert();
         }
     }
 
+    void pickDrink() throws Exception {
+        boolean validChoice;
+        int choice;
 
-    static boolean validateChoice(int choice, List<?> options) {
+        do {
+            System.out.println("Pick a drink by choosing it's number:");
+            List<Drink> drinkOptions = Drinks.getDrinksList();
 
-        if (choice < 0 || choice > options.size() - 1) {
-            System.out.println("Numbers only from 0 to " + (options.size() - 1) + " please. \n");
-            return false;
-        }
+            OrderHelper.listOutOrderOptions(drinkOptions);
 
-        return true;
-    }
+            choice = OrderHelper.getIntegerFromSysInput();
 
-    static int getIntegerFromSysInput() {
-        int choice = -1;
+            validChoice = OrderHelper.validateChoice(choice, drinkOptions);
+
+            if (validChoice) {
+                Drink drink = drinkOptions.get(choice);
+                String addons = OrderHelper.addonsToDrink();
+                drink.wantsLemon(OrderHelper.wantsLemons(addons));
+                drink.wantsIce(OrderHelper.wantsIceCubes(addons));
+
+                orderedDrinks.add(drink);
+                validChoice = true;
+            }
+        } while (!validChoice);
+
+        System.out.println("Would you like to order another Drink? Yes or Y if so");
         Scanner scanner = new Scanner(System.in);
-        try {
-            choice = scanner.nextInt();
-        } catch (InputMismatchException ex) {
-            System.out.println("Only numerical values \n");
-        }
-        return choice;
-    }
-
-    static void listOutOrderOptions(List<?> options){
-        for (int i = 0; i < options.size(); i++) {
-            System.out.println(i + ". " + options.get(i));
+        String wantsAnother = scanner.nextLine();
+        if(wantsAnother.toLowerCase().equals("yes") || wantsAnother.toLowerCase().equals("y")){
+            pickDrink();
         }
     }
 
@@ -159,5 +152,9 @@ public class Order {
         System.out.println("orderedMainCourses = " + orderedMainCourses.toString());
         System.out.println("orderedDesserts = " + orderedDesserts.toString());
         System.out.println("orderedDrinks = " + orderedDrinks.toString());
+    }
+
+    void listOutPrices(){
+
     }
 }
