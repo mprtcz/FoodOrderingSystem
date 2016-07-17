@@ -17,5 +17,6 @@ public class App {
         }
 
         order.listOutPickedItems();
+        order.getTotalPrice();
     }
 }

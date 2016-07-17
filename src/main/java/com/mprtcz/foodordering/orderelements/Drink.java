@@ -37,20 +37,15 @@ public class Drink {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(name);
         stringBuilder.append(", ");
-        stringBuilder.append(price);
         if(withIce){
             stringBuilder.append(" + Ice");
-        } else {
-            stringBuilder.append(" without ice");
         }
 
         if(withLemon){
-            stringBuilder.append(" + lemon");
-        } else {
-            stringBuilder.append(" without lemon");
+            stringBuilder.append(" + Lemon");
         }
 
-        stringBuilder.append(", total: ").append(price).append(";");
+        stringBuilder.append(", ").append(String.format("%.2f", price)).append(";");
         return stringBuilder.toString();
     }
 }

@@ -1,6 +1,9 @@
 package com.mprtcz.foodordering.orderhelper;
 
 import com.mprtcz.foodordering.interfaces.Cuisine;
+import com.mprtcz.foodordering.orderelements.Dessert;
+import com.mprtcz.foodordering.orderelements.Drink;
+import com.mprtcz.foodordering.orderelements.MainCourse;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -50,16 +53,33 @@ public class OrderHelper {
     }
 
     public static boolean wantsLemons(String string){
-            return string.contains("lemon");
+            return string.toLowerCase().contains("lemon");
     }
 
     public static boolean wantsIceCubes(String string){
-            return string.contains("ice");
+            return string.toLowerCase().contains("ice");
     }
 
     public static String addonsToDrink(){
         System.out.println("Do you want a lemon or ice cubes to be added to your drink?");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    public static double summarizePrices(List<MainCourse> orderedMainCourses, List<Dessert> orderedDesserts, List<Drink> orderedDrinks){
+        double totalPrice =0;
+        for (MainCourse m : orderedMainCourses){
+            totalPrice += m.getPrice();
+        }
+        for (Dessert d :
+                orderedDesserts) {
+            totalPrice += d.getPrice();
+        }
+        for (Drink dr :
+                orderedDrinks) {
+            totalPrice += dr.getPrice();
+        }
+
+        return totalPrice;
     }
 }

@@ -154,7 +154,8 @@ public class Order {
         System.out.println("orderedDrinks = " + orderedDrinks.toString());
     }
 
-    void listOutPrices(){
-
+    void getTotalPrice(){
+        double price = OrderHelper.summarizePrices(orderedMainCourses, orderedDesserts, orderedDrinks);
+        System.out.println("Total: " +String.format("%.2f", price));
     }
 }
