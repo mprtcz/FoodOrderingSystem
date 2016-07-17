@@ -154,4 +154,10 @@ public class Order {
             System.out.println(i + ". " + options.get(i));
         }
     }
+
+    void listOutPickedItems(){
+        System.out.println("orderedMainCourses = " + orderedMainCourses.toString());
+        System.out.println("orderedDesserts = " + orderedDesserts.toString());
+        System.out.println("orderedDrinks = " + orderedDrinks.toString());
+    }
 }
