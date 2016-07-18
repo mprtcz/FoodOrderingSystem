@@ -4,6 +4,7 @@ import com.mprtcz.foodordering.availableitems.Drinks;
 import com.mprtcz.foodordering.helpers.ConsoleInputHelper;
 import com.mprtcz.foodordering.helpers.OrderHelper;
 import com.mprtcz.foodordering.interfaces.Cuisine;
+import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.Drink;
 import com.mprtcz.foodordering.orderelements.MainCourse;
@@ -11,13 +12,18 @@ import com.mprtcz.foodordering.orderelements.MainCourse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Azet on 2016-07-08.
  */
 public class App {
-    public static void main(String[] args) throws Exception {
+    private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
+    private static Level level = Level.CONFIG;
 
+    public static void main(String[] args) throws Exception {
+        AppLogger.initializeLogger();
 
         Order order = new Order();
         if(ConsoleInputHelper.wantsAnotherPick(" Main course")){
@@ -30,12 +36,14 @@ public class App {
             pickDrink(order);
         }
 
-        order.listOutPickedItems();
-        order.getTotalPrice();
+        System.out.println(order.listOutPickedItems());
+        System.out.println("Total price is: " +order.getTotalPrice().getAmount());
 
     }
 
-    static Cuisine.CuisineOptions pickCuisine(){
+    private static Cuisine.CuisineOptions pickCuisine(){
+        logger.log(level, "");
+
         int cuisineChoice;
         boolean isChoiceValid;
 
@@ -51,7 +59,9 @@ public class App {
         return cuisineOptions.get(cuisineChoice);
     }
 
-    static void pickMainMeal(Order order) throws Exception {
+    private static void pickMainMeal(Order order) throws Exception {
+        logger.log(level, "");
+
         boolean validChoice;
         int choice;
         Cuisine.CuisineOptions cuisine;
@@ -84,7 +94,9 @@ public class App {
         }
     }
 
-    static void pickDessert(Order order) throws Exception {
+    private static void pickDessert(Order order) throws Exception {
+        logger.log(level, "");
+
         boolean validChoice;
         int choice;
         Cuisine.CuisineOptions cuisine;
@@ -118,7 +130,9 @@ public class App {
         }
     }
 
-    static void pickDrink(Order order) throws Exception {
+    private static void pickDrink(Order order) throws Exception {
+        logger.log(level, "");
+
         boolean validChoice;
         int choice;
 

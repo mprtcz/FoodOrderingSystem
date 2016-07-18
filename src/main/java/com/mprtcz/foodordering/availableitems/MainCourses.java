@@ -1,17 +1,24 @@
 package com.mprtcz.foodordering.availableitems;
 
+import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.MainCourse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Azet on 2016-07-18.
  */
 public class MainCourses {
+    private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
+    private static Level level = Level.CONFIG;
+
 
     public static List<MainCourse> getItalianMainCourseList(){
         List<MainCourse> italianMainCourseList = new ArrayList<>();
+
         italianMainCourseList.add(new MainCourse("Italian Meal 0", "USD 1.99"));
         italianMainCourseList.add(new MainCourse("Italian Meal 1", "USD 2.99"));
         italianMainCourseList.add(new MainCourse("Italian Meal 2", "USD 1.29"));
@@ -21,11 +28,13 @@ public class MainCourses {
         italianMainCourseList.add(new MainCourse("Italian Meal 6", "USD 5.99"));
         italianMainCourseList.add(new MainCourse("Italian Meal 7", "USD 2.55"));
 
+        logger.log(level, "Returned: " +italianMainCourseList.toString());
         return italianMainCourseList;
     }
 
     public static List<MainCourse> getMexicanMainCoursesList(){
         List<MainCourse> mexicanMainCourseList = new ArrayList<>();
+
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 0", "USD 1.99"));
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 1", "USD 2.99"));
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 2", "USD 1.29"));
@@ -34,11 +43,14 @@ public class MainCourses {
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 5", "USD 2.44"));
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 6", "USD 5.99"));
         mexicanMainCourseList.add(new MainCourse("Mexican Meal 7", "USD 2.55"));
+
+        logger.log(level, "Returned: " +mexicanMainCourseList.toString());
         return mexicanMainCourseList;
     }
 
     public static List<MainCourse> getPolishMainCoursesList(){
         List<MainCourse> polishMainCourseList = new ArrayList<>();
+
         polishMainCourseList.add(new MainCourse("Polish Meal 0", "USD 1.99"));
         polishMainCourseList.add(new MainCourse("Polish Meal 1", "USD 2.99"));
         polishMainCourseList.add(new MainCourse("Polish Meal 2", "USD 1.29"));
@@ -47,6 +59,8 @@ public class MainCourses {
         polishMainCourseList.add(new MainCourse("Polish Meal 5", "USD 2.44"));
         polishMainCourseList.add(new MainCourse("Polish Meal 6", "USD 5.99"));
         polishMainCourseList.add(new MainCourse("Polish Meal 7", "USD 2.55"));
+
+        logger.log(level, "Returned: " +polishMainCourseList.toString());
         return polishMainCourseList;
     }
 }

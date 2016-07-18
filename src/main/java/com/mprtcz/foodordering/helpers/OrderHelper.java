@@ -1,28 +1,42 @@
 package com.mprtcz.foodordering.helpers;
 
+import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.Drink;
 import com.mprtcz.foodordering.orderelements.MainCourse;
 import org.joda.money.Money;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Azet on 2016-07-17.
  */
 public class OrderHelper {
+    private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
+    private static Level level = Level.CONFIG;
+
 
     public static boolean wantsLemons(String string){
-            return string.toLowerCase().contains("lemon");
+        logger.log(level, "String arg = " +string);
+        return string.toLowerCase().contains("lemon");
     }
 
     public static boolean wantsIceCubes(String string){
-            return string.toLowerCase().contains("ice");
+        logger.log(level, "String arg = " +string);
+
+        return string.toLowerCase().contains("ice");
     }
 
     public static Money summarizePrices(List<MainCourse> orderedMainCourses, List<Dessert> orderedDesserts, List<Drink> orderedDrinks){
+        logger.log(level, "orderedMainCourses arg = " +orderedMainCourses.toString());
+        logger.log(level, "orderedDesserts arg = " +orderedDesserts.toString());
+        logger.log(level, "orderedDrinks arg = " +orderedDrinks.toString());
+
         Money totalPrice =  Money.parse("USD 0");
-        for (MainCourse m : orderedMainCourses){
+        for (MainCourse m :
+                orderedMainCourses){
             totalPrice = totalPrice.plus(m.getPrice());
         }
         for (Dessert d :
@@ -34,6 +48,7 @@ public class OrderHelper {
             totalPrice = totalPrice.plus(dr.getPrice());
         }
 
+        logger.log(level, "Total price = " +totalPrice);
         return totalPrice;
     }
 }

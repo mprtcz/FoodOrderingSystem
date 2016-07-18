@@ -11,6 +11,7 @@ import java.util.List;
  * Created by Azet on 2016-07-16.
  */
 public interface Cuisine {
+
     String getName();
 
     enum CuisineOptions {
@@ -38,9 +39,7 @@ public interface Cuisine {
         },
         ITALIAN("Italian Cuisine") {
             @Override
-            public List<MainCourse> getMainCourseList() {
-                return MainCourses.getItalianMainCourseList();
-            }
+            public List<MainCourse> getMainCourseList() {return MainCourses.getItalianMainCourseList();}
 
             @Override
             public List<Dessert> getDessertsList() {
