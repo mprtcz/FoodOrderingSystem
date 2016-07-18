@@ -52,6 +52,7 @@ public class Order {
         logger.log(level, "");
 
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\nOrdered items: \n");
         stringBuilder.append(orderedMainCourses.toString());
         stringBuilder.append("\n");
         stringBuilder.append(orderedDesserts.toString());
