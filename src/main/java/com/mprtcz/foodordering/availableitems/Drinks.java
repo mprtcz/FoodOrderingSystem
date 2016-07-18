@@ -16,18 +16,18 @@ public class Drinks {
     private static Level level = Level.CONFIG;
 
 
-    public static List<Drink> getDrinksList(){
+    public static List<Drink> getDrinksList() {
         List<Drink> drinksList;
 
         drinksList = new ArrayList<>();
-        drinksList.add(new Drink("Drink 0", "USD 1.99"));
-        drinksList.add(new Drink("Drink 1", "USD 2.99"));
-        drinksList.add(new Drink("Drink 2", "USD 3.99"));
-        drinksList.add(new Drink("Drink 3", "USD 4.99"));
-        drinksList.add(new Drink("Drink 4", "USD 5.99"));
+        drinksList.add(new Drink("Drink #0", "USD 1.99"));
+        drinksList.add(new Drink("Drink #1", "USD 2.99"));
+        drinksList.add(new Drink("Drink #2", "USD 3.99"));
+        drinksList.add(new Drink("Drink #3", "USD 4.99"));
+        drinksList.add(new Drink("Drink #4", "USD 5.99"));
 
 
-        logger.log(level, "Returned: " +drinksList.toString());
+        logger.log(level, "Returned: " + drinksList.toString());
         return drinksList;
     }
 }

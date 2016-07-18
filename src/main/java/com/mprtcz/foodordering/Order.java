@@ -32,23 +32,23 @@ public class Order {
 
     }
 
-    void addPickedMainMeal(MainCourse mainCourse){
-        logger.log(level, "mainCourse arg = " +mainCourse.toString());
+    void addPickedMainMeal(MainCourse mainCourse) {
+        logger.log(level, "mainCourse arg = " + mainCourse.toString());
 
         orderedMainCourses.add(mainCourse);
     }
 
-    void addPickedDessert(Dessert dessert){
-        logger.log(level, "dessert arg = " +dessert.toString());
+    void addPickedDessert(Dessert dessert) {
+        logger.log(level, "dessert arg = " + dessert.toString());
         orderedDesserts.add(dessert);
     }
 
-    void addPickedDrink(Drink drink){
-        logger.log(level, "drink arg = " +drink.toString());
+    void addPickedDrink(Drink drink) {
+        logger.log(level, "drink arg = " + drink.toString());
         orderedDrinks.add(drink);
     }
 
-    String listOutPickedItems(){
+    String listOutPickedItems() {
         logger.log(level, "");
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -60,16 +60,16 @@ public class Order {
         stringBuilder.append(orderedDrinks.toString());
         stringBuilder.append("\n");
 
-        logger.log(level, "returned stringBuilder = " +stringBuilder.toString());
+        logger.log(level, "returned stringBuilder = " + stringBuilder.toString());
         return stringBuilder.toString();
     }
 
-    Money getTotalPrice(){
+    Money getTotalPrice() {
         logger.log(level, "");
 
         Money price = OrderHelper.summarizePrices(orderedMainCourses, orderedDesserts, orderedDrinks);
 
-        logger.log(level, "price = " +price);
+        logger.log(level, "price = " + price);
         return price;
     }
 }

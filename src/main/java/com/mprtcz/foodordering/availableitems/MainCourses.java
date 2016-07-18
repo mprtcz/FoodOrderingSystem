@@ -16,51 +16,51 @@ public class MainCourses {
     private static Level level = Level.CONFIG;
 
 
-    public static List<MainCourse> getItalianMainCourseList(){
+    public static List<MainCourse> getItalianMainCourseList() {
         List<MainCourse> italianMainCourseList = new ArrayList<>();
 
-        italianMainCourseList.add(new MainCourse("Italian Meal 0", "USD 1.99"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 1", "USD 2.99"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 2", "USD 1.29"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 3", "USD 2.29"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 4", "USD 3.99"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 5", "USD 2.44"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 6", "USD 5.99"));
-        italianMainCourseList.add(new MainCourse("Italian Meal 7", "USD 2.55"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #0", "USD 1.99"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #1", "USD 2.99"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #2", "USD 1.29"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #3", "USD 2.29"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #4", "USD 3.99"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #5", "USD 2.44"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #6", "USD 5.99"));
+        italianMainCourseList.add(new MainCourse("Italian Meal #7", "USD 2.55"));
 
-        logger.log(level, "Returned: " +italianMainCourseList.toString());
+        logger.log(level, "Returned: " + italianMainCourseList.toString());
         return italianMainCourseList;
     }
 
-    public static List<MainCourse> getMexicanMainCoursesList(){
+    public static List<MainCourse> getMexicanMainCoursesList() {
         List<MainCourse> mexicanMainCourseList = new ArrayList<>();
 
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 0", "USD 1.99"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 1", "USD 2.99"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 2", "USD 1.29"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 3", "USD 2.29"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 4", "USD 3.99"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 5", "USD 2.44"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 6", "USD 5.99"));
-        mexicanMainCourseList.add(new MainCourse("Mexican Meal 7", "USD 2.55"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #0", "USD 1.99"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #1", "USD 2.99"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #2", "USD 1.29"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #3", "USD 2.29"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #4", "USD 3.99"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #5", "USD 2.44"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #6", "USD 5.99"));
+        mexicanMainCourseList.add(new MainCourse("Mexican Meal #7", "USD 2.55"));
 
-        logger.log(level, "Returned: " +mexicanMainCourseList.toString());
+        logger.log(level, "Returned: " + mexicanMainCourseList.toString());
         return mexicanMainCourseList;
     }
 
-    public static List<MainCourse> getPolishMainCoursesList(){
+    public static List<MainCourse> getPolishMainCoursesList() {
         List<MainCourse> polishMainCourseList = new ArrayList<>();
 
-        polishMainCourseList.add(new MainCourse("Polish Meal 0", "USD 1.99"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 1", "USD 2.99"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 2", "USD 1.29"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 3", "USD 2.29"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 4", "USD 3.99"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 5", "USD 2.44"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 6", "USD 5.99"));
-        polishMainCourseList.add(new MainCourse("Polish Meal 7", "USD 2.55"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #0", "USD 1.99"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #1", "USD 2.99"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #2", "USD 1.29"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #3", "USD 2.29"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #4", "USD 3.99"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #5", "USD 2.44"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #6", "USD 5.99"));
+        polishMainCourseList.add(new MainCourse("Polish Meal #7", "USD 2.55"));
 
-        logger.log(level, "Returned: " +polishMainCourseList.toString());
+        logger.log(level, "Returned: " + polishMainCourseList.toString());
         return polishMainCourseList;
     }
 }

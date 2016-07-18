@@ -26,12 +26,12 @@ public class Drink {
         return price;
     }
 
-    public void wantsLemon(boolean wantsLemon){
+    public void wantsLemon(boolean wantsLemon) {
         withLemon = wantsLemon;
         price = price.plus(LEMON_PRICE);
     }
 
-    public void wantsIce(boolean wantsIce){
+    public void wantsIce(boolean wantsIce) {
         withIce = wantsIce;
         price = price.plus(ICE_PRICE);
     }
@@ -40,16 +40,16 @@ public class Drink {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(name);
-        stringBuilder.append(" ");
-        if(withIce){
-            stringBuilder.append("+ Ice");
+        //stringBuilder.append(" ");
+        if (withIce) {
+            stringBuilder.append(" + Ice");
         }
 
-        if(withLemon){
-            stringBuilder.append("+ Lemon");
+        if (withLemon) {
+            stringBuilder.append(" + Lemon");
         }
 
-        stringBuilder.append(" ").append(String.format("%.2f", price.getAmount())).append(";");
+        stringBuilder.append(" ").append(price);
         return stringBuilder.toString();
     }
 }

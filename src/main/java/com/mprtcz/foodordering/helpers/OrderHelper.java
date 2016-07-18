@@ -18,25 +18,25 @@ public class OrderHelper {
     private static Level level = Level.CONFIG;
 
 
-    public static boolean wantsLemons(String string){
-        logger.log(level, "String arg = " +string);
+    public static boolean wantsLemons(String string) {
+        logger.log(level, "String arg = " + string);
         return string.toLowerCase().contains("lemon");
     }
 
-    public static boolean wantsIceCubes(String string){
-        logger.log(level, "String arg = " +string);
+    public static boolean wantsIceCubes(String string) {
+        logger.log(level, "String arg = " + string);
 
         return string.toLowerCase().contains("ice");
     }
 
-    public static Money summarizePrices(List<MainCourse> orderedMainCourses, List<Dessert> orderedDesserts, List<Drink> orderedDrinks){
-        logger.log(level, "orderedMainCourses arg = " +orderedMainCourses.toString());
-        logger.log(level, "orderedDesserts arg = " +orderedDesserts.toString());
-        logger.log(level, "orderedDrinks arg = " +orderedDrinks.toString());
+    public static Money summarizePrices(List<MainCourse> orderedMainCourses, List<Dessert> orderedDesserts, List<Drink> orderedDrinks) {
+        logger.log(level, "orderedMainCourses arg = " + orderedMainCourses.toString());
+        logger.log(level, "orderedDesserts arg = " + orderedDesserts.toString());
+        logger.log(level, "orderedDrinks arg = " + orderedDrinks.toString());
 
-        Money totalPrice =  Money.parse("USD 0");
+        Money totalPrice = Money.parse("USD 0");
         for (MainCourse m :
-                orderedMainCourses){
+                orderedMainCourses) {
             totalPrice = totalPrice.plus(m.getPrice());
         }
         for (Dessert d :
@@ -48,7 +48,7 @@ public class OrderHelper {
             totalPrice = totalPrice.plus(dr.getPrice());
         }
 
-        logger.log(level, "Total price = " +totalPrice);
+        logger.log(level, "Total price = " + totalPrice);
         return totalPrice;
     }
 }

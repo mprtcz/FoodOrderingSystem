@@ -26,29 +26,29 @@ public class App {
         AppLogger.initializeLogger();
 
         Order order = new Order();
-        if(ConsoleInputHelper.wantsAnotherPick(" Main course")){
+        if (ConsoleInputHelper.wantsAnotherPick("Main course")) {
             pickMainMeal(order);
         }
-        if(ConsoleInputHelper.wantsAnotherPick("Dessert")){
+        if (ConsoleInputHelper.wantsAnotherPick("Dessert")) {
             pickDessert(order);
         }
-        if(ConsoleInputHelper.wantsAnotherPick("Drink")){
+        if (ConsoleInputHelper.wantsAnotherPick("Drink")) {
             pickDrink(order);
         }
 
         System.out.println(order.listOutPickedItems());
-        System.out.println("Total price is: " +order.getTotalPrice().getAmount());
+        System.out.println("Total price is: " + order.getTotalPrice());
 
     }
 
-    private static Cuisine.CuisineOptions pickCuisine(){
+    private static Cuisine.CuisineOptions pickCuisine() {
         logger.log(level, "");
 
         int cuisineChoice;
         boolean isChoiceValid;
 
         List<Cuisine.CuisineOptions> cuisineOptions = new ArrayList<>(Arrays.asList(Cuisine.CuisineOptions.values()));
-        do{
+        do {
             ConsoleInputHelper.listOutCuisineOptions();
 
             cuisineChoice = ConsoleInputHelper.getIntegerFromSysInput();
@@ -66,7 +66,7 @@ public class App {
         int choice;
         Cuisine.CuisineOptions cuisine;
 
-        System.out.println("Pick a cuisine for a main meal :");
+        System.out.println("Pick a cuisine for a main meal:");
         cuisine = pickCuisine();
 
         if (cuisine == null) {
@@ -89,7 +89,7 @@ public class App {
             }
         } while (!validChoice);
 
-        if(ConsoleInputHelper.wantsAnotherPick("another Main course")){
+        if (ConsoleInputHelper.wantsAnotherPick("another Main course")) {
             pickMainMeal(order);
         }
     }
@@ -125,7 +125,7 @@ public class App {
             }
         } while (!validChoice);
 
-        if(ConsoleInputHelper.wantsAnotherPick("another Dessert")){
+        if (ConsoleInputHelper.wantsAnotherPick("another Dessert")) {
             pickDessert(order);
         }
     }
@@ -157,7 +157,7 @@ public class App {
             }
         } while (!validChoice);
 
-        if(ConsoleInputHelper.wantsAnotherPick("another Drink")){
+        if (ConsoleInputHelper.wantsAnotherPick("another Drink")) {
             pickDrink(order);
         }
     }

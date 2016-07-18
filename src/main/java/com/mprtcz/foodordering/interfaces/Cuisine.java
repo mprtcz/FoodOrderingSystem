@@ -39,7 +39,9 @@ public interface Cuisine {
         },
         ITALIAN("Italian Cuisine") {
             @Override
-            public List<MainCourse> getMainCourseList() {return MainCourses.getItalianMainCourseList();}
+            public List<MainCourse> getMainCourseList() {
+                return MainCourses.getItalianMainCourseList();
+            }
 
             @Override
             public List<Dessert> getDessertsList() {
@@ -54,6 +56,7 @@ public interface Cuisine {
         }
 
         public abstract List<MainCourse> getMainCourseList();
+
         public abstract List<Dessert> getDessertsList();
 
         @Override
