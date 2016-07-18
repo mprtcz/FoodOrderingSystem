@@ -1,6 +1,6 @@
 package com.mprtcz.foodordering;
 
-import com.mprtcz.foodordering.drinks.Drinks;
+import com.mprtcz.foodordering.availableitems.Drinks;
 import com.mprtcz.foodordering.helpers.ConsoleInputHelper;
 import com.mprtcz.foodordering.helpers.OrderHelper;
 import com.mprtcz.foodordering.interfaces.Cuisine;
@@ -35,7 +35,7 @@ public class App {
 
     }
 
-    static Cuisine pickCuisine(){
+    static Cuisine.CuisineOptions pickCuisine(){
         int cuisineChoice;
         boolean isChoiceValid;
 
@@ -48,13 +48,13 @@ public class App {
             isChoiceValid = ConsoleInputHelper.validateChoice(cuisineChoice, cuisineOptions);
         } while (!isChoiceValid);
 
-        return Cuisine.getInstance(cuisineOptions.get(cuisineChoice));
+        return cuisineOptions.get(cuisineChoice);
     }
 
     static void pickMainMeal(Order order) throws Exception {
         boolean validChoice;
         int choice;
-        Cuisine cuisine;
+        Cuisine.CuisineOptions cuisine;
 
         System.out.println("Pick a cuisine for a main meal :");
         cuisine = pickCuisine();
@@ -87,7 +87,7 @@ public class App {
     static void pickDessert(Order order) throws Exception {
         boolean validChoice;
         int choice;
-        Cuisine cuisine;
+        Cuisine.CuisineOptions cuisine;
 
         System.out.println("Pick a cuisine for a dessert:");
 

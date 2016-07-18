@@ -6,8 +6,8 @@ import org.joda.money.Money;
  * Created by Azet on 2016-07-17.
  */
 public class Dessert {
-    String name;
-    Money price;
+    private String name;
+    private Money price;
 
     public Dessert(String name, String price) {
         this.name = name;

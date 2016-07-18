@@ -1,8 +1,7 @@
 package com.mprtcz.foodordering.interfaces;
 
-import com.mprtcz.foodordering.cuisines.ItalianCuisine;
-import com.mprtcz.foodordering.cuisines.MexicanCuisine;
-import com.mprtcz.foodordering.cuisines.PolishCuisine;
+import com.mprtcz.foodordering.availableitems.Desserts;
+import com.mprtcz.foodordering.availableitems.MainCourses;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.MainCourse;
 
@@ -14,38 +13,53 @@ import java.util.List;
 public interface Cuisine {
     String getName();
 
-    List<MainCourse> getMainCourseList();
-    List<Dessert> getDessertsList();
+    enum CuisineOptions {
+        POLISH("Polish cuisine") {
+            @Override
+            public List<MainCourse> getMainCourseList() {
+                return MainCourses.getPolishMainCoursesList();
+            }
 
+            @Override
+            public List<Dessert> getDessertsList() {
+                return Desserts.getPolishDessertsList();
+            }
+        },
+        MEXICAN("Mexican cuisine") {
+            @Override
+            public List<MainCourse> getMainCourseList() {
+                return MainCourses.getMexicanMainCoursesList();
+            }
 
-    enum CuisineOptions{
-        POLISH("Polish cuisine"),
-        MEXICAN("Mexican cuisine"),
-        ITALIAN("Italian Cuisine");
+            @Override
+            public List<Dessert> getDessertsList() {
+                return Desserts.getMexicanDessertsList();
+            }
+        },
+        ITALIAN("Italian Cuisine") {
+            @Override
+            public List<MainCourse> getMainCourseList() {
+                return MainCourses.getItalianMainCourseList();
+            }
+
+            @Override
+            public List<Dessert> getDessertsList() {
+                return Desserts.getItalianDessertsList();
+            }
+        };
 
         private String value;
 
-        CuisineOptions(String value){
+        CuisineOptions(String value) {
             this.value = value;
         }
 
+        public abstract List<MainCourse> getMainCourseList();
+        public abstract List<Dessert> getDessertsList();
+
         @Override
-        public String toString(){
+        public String toString() {
             return value;
-        }
-    }
-
-
-    static Cuisine getInstance(CuisineOptions cuisine){
-        switch(cuisine){
-            case POLISH:
-                return new PolishCuisine();
-            case MEXICAN:
-                return new MexicanCuisine();
-            case ITALIAN:
-                return new ItalianCuisine();
-            default:
-                return new PolishCuisine();
         }
     }
 }

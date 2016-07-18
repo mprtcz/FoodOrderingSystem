@@ -1,4 +1,4 @@
-package com.mprtcz.foodordering.drinks;
+package com.mprtcz.foodordering.availableitems;
 
 import com.mprtcz.foodordering.orderelements.Drink;
 

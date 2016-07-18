@@ -12,12 +12,10 @@ import java.util.Scanner;
 public class ConsoleInputHelper {
 
     public static boolean validateChoice(int choice, List<?> options) {
-
         if (choice < 0 || choice > options.size() - 1) {
             System.out.println("Numbers only from 0 to " + (options.size() - 1) + " please. \n");
             return false;
         }
-
         return true;
     }
 
@@ -36,10 +34,6 @@ public class ConsoleInputHelper {
         for (int i = 0; i < options.size(); i++) {
             System.out.println(i + ". " + options.get(i));
         }
-    }
-
-    public void soutPickedCuisine(Cuisine cuisine){
-        System.out.println("Picked " + cuisine.getName());
     }
 
     public static void listOutCuisineOptions(){

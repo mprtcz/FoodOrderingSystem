@@ -13,11 +13,11 @@ import java.util.List;
  * Created by Azet on 2016-07-08.
  */
 public class Order {
-    List<MainCourse> orderedMainCourses;
-    List<Dessert> orderedDesserts;
-    List<Drink> orderedDrinks;
+    private List<MainCourse> orderedMainCourses;
+    private List<Dessert> orderedDesserts;
+    private List<Drink> orderedDrinks;
 
-    public Order() {
+    Order() {
         orderedMainCourses = new ArrayList<>();
         orderedDesserts = new ArrayList<>();
         orderedDrinks = new ArrayList<>();
