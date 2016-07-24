@@ -8,7 +8,7 @@ At the end of an order, application displays all ordered items and a total price
 
 The application's sample output:
 
-![sampleOutput](https://sc-cdn.scaleengine.net/i/b9af1b07be5b51cdb7adab0a50b5c2995.png)
+![sampleOutput](https://sc-cdn.scaleengine.net/i/a235e3739f0c3bd483a84c158fc36ceb1.png)
 
 
 To generate a jar file of this project using maven:
