@@ -1,8 +1,8 @@
 package com.mprtcz.foodordering;
 
 import com.mprtcz.foodordering.availableitems.Drinks;
-import com.mprtcz.foodordering.helpers.ConsoleInputHelper;
-import com.mprtcz.foodordering.helpers.OrderHelper;
+import com.mprtcz.foodordering.utilities.ConsoleInputHelper;
+import com.mprtcz.foodordering.utilities.OrderHelper;
 import com.mprtcz.foodordering.interfaces.Cuisine;
 import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.Dessert;

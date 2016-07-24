@@ -1,4 +1,4 @@
-package com.mprtcz.foodordering.helpers;
+package com.mprtcz.foodordering.utilities;
 
 import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.Dessert;
@@ -17,6 +17,7 @@ public class OrderHelper {
     private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
     private static Level level = Level.CONFIG;
 
+    private OrderHelper() {}
 
     public static boolean wantsLemons(String string) {
         logger.log(level, "String arg = " + string);
@@ -50,5 +51,15 @@ public class OrderHelper {
 
         logger.log(level, "Total price = " + totalPrice);
         return totalPrice;
+    }
+
+    public static String getStringItemsFromList(List<?> list) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object item : list){
+            stringBuilder.append("\t");
+            stringBuilder.append(item.toString());
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
     }
 }

@@ -1,16 +1,18 @@
 package com.mprtcz.foodordering;
 
-import com.mprtcz.foodordering.helpers.OrderHelper;
 import com.mprtcz.foodordering.logger.AppLogger;
 import com.mprtcz.foodordering.orderelements.Dessert;
 import com.mprtcz.foodordering.orderelements.Drink;
 import com.mprtcz.foodordering.orderelements.MainCourse;
+import com.mprtcz.foodordering.utilities.OrderHelper;
 import org.joda.money.Money;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static com.mprtcz.foodordering.utilities.OrderHelper.getStringItemsFromList;
 
 /**
  * Created by Azet on 2016-07-08.
@@ -53,12 +55,20 @@ public class Order {
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\nOrdered items: \n");
-        stringBuilder.append(orderedMainCourses.toString());
-        stringBuilder.append("\n");
-        stringBuilder.append(orderedDesserts.toString());
-        stringBuilder.append("\n");
-        stringBuilder.append(orderedDrinks.toString());
-        stringBuilder.append("\n");
+        if (orderedMainCourses.size() > 0) {
+            stringBuilder.append("Main courses:\n");
+            stringBuilder.append(getStringItemsFromList(orderedMainCourses));
+        }
+
+        if (orderedDesserts.size() > 0) {
+            stringBuilder.append("Desserts:\n");
+            stringBuilder.append(getStringItemsFromList(orderedDesserts));
+        }
+
+        if (orderedDrinks.size() > 0) {
+            stringBuilder.append("Drinks:\n");
+            stringBuilder.append(getStringItemsFromList(orderedDrinks));
+        }
 
         logger.log(level, "returned stringBuilder = " + stringBuilder.toString());
         return stringBuilder.toString();

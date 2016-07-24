@@ -15,6 +15,7 @@ public class MainCourses {
     private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
     private static Level level = Level.CONFIG;
 
+    private MainCourses() {}
 
     public static List<MainCourse> getItalianMainCourseList() {
         List<MainCourse> italianMainCourseList = new ArrayList<>();

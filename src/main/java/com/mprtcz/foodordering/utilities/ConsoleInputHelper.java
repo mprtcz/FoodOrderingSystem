@@ -1,4 +1,4 @@
-package com.mprtcz.foodordering.helpers;
+package com.mprtcz.foodordering.utilities;
 
 import com.mprtcz.foodordering.interfaces.Cuisine;
 import com.mprtcz.foodordering.logger.AppLogger;
@@ -16,6 +16,7 @@ public class ConsoleInputHelper {
     private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
     private static Level level = Level.CONFIG;
 
+    private ConsoleInputHelper() {}
 
     public static boolean validateChoice(int choice, List<?> options) {
         logger.log(level, "Choice: " + choice + " options: " + options.toString()

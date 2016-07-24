@@ -15,6 +15,7 @@ public class Drinks {
     private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
     private static Level level = Level.CONFIG;
 
+    private Drinks() {}
 
     public static List<Drink> getDrinksList() {
         List<Drink> drinksList;

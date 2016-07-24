@@ -49,11 +49,11 @@ public interface Cuisine {
             }
         };
 
-        private String value;
-
         CuisineOptions(String value) {
             this.value = value;
         }
+
+        private String value;
 
         public abstract List<MainCourse> getMainCourseList();
 

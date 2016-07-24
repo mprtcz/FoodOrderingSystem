@@ -15,6 +15,9 @@ public class Desserts {
     private final static Logger logger = Logger.getLogger(AppLogger.class.getName());
     private static Level level = Level.CONFIG;
 
+    private Desserts() {
+    }
+
     public static List<Dessert> getItalianDessertsList() {
         List<Dessert> italianDessertsList = new ArrayList<>();
 
